@@ -4,7 +4,7 @@ const STORAGE_KEY_DOSES = 'doselog_doses_cache_v1';
 const STORAGE_KEY_SETTINGS = 'doselog_settings_cache_v1';
 
 export const DEFAULT_SETTINGS: UserSettings = {
-  oilName: 'Balanced 10:10 (THC:CBD)',
+  oilName: 'BALANCED 25:25 (THC:CBD)',
   thcMgPerMl: 10,
   cbdMgPerMl: 10,
   defaultVolumeMl: 0.5,
