@@ -24,25 +24,18 @@ import { DoseButton } from './components/DoseButton';
 import { TodayDoseList } from './components/TodayDoseList';
 import { BottleTracker } from './components/BottleTracker';
 import { HistoryModal } from './components/HistoryModal';
-import { CasaOSModal } from './components/CasaOSModal';
 import { SettingsModal } from './components/SettingsModal';
 import { PWAInstallButton } from './components/PWAInstallButton';
 import {
   Clock,
-  Sparkles,
-  Droplet,
-  ArrowRight,
-  RotateCcw,
   Undo2,
   CheckCircle2,
-  HardDrive,
-  Info,
 } from 'lucide-react';
 
 export default function App() {
   const [doses, setDoses] = useState<Dose[]>([]);
   const [settings, setSettings] = useState<UserSettings>(DEFAULT_SETTINGS);
-  const [activeTab, setActiveTab] = useState<'today' | 'history' | 'bottle' | 'casaos'>('today');
+  const [activeTab, setActiveTab] = useState<'today' | 'history' | 'bottle'>('today');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isLogging, setIsLogging] = useState(false);
   const [serverStatus, setServerStatus] = useState<{
@@ -307,21 +300,7 @@ export default function App() {
               />
             </div>
 
-            {/* PWA & Server Notice footer card */}
-            <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#1e2025] bg-[#121316] p-4 text-xs text-[#787e8b]">
-              <div className="flex items-center gap-2">
-                <HardDrive className="h-4 w-4 text-[#9aa0ae]" />
-                <span>
-                  Self-host on ZimaBoard Debian / CasaOS:{' '}
-                  <button
-                    onClick={() => setActiveTab('casaos')}
-                    className="font-medium text-[#d1d5db] underline hover:text-white"
-                  >
-                    View Docker Setup
-                  </button>
-                </span>
-              </div>
-
+            <div className="flex justify-center pt-1">
               <PWAInstallButton />
             </div>
           </div>
@@ -394,17 +373,6 @@ export default function App() {
               </div>
             </div>
           </div>
-        )}
-
-        {/* TAB 4: CASAOS & ZIMABOARD DOCKER */}
-        {activeTab === 'casaos' && (
-          <CasaOSModal
-            doses={doses}
-            settings={settings}
-            mongoConnected={serverStatus.mongoConnected}
-            engine={serverStatus.engine}
-            onReloadData={reloadAllData}
-          />
         )}
       </main>
 

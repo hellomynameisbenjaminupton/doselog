@@ -1,9 +1,9 @@
 import React from 'react';
-import { Database, History, Settings, HardDrive, Droplets } from 'lucide-react';
+import { History, Settings, Droplets } from 'lucide-react';
 
 interface HeaderProps {
-  activeTab: 'today' | 'history' | 'bottle' | 'casaos';
-  setActiveTab: (tab: 'today' | 'history' | 'bottle' | 'casaos') => void;
+  activeTab: 'today' | 'history' | 'bottle';
+  setActiveTab: (tab: 'today' | 'history' | 'bottle') => void;
   onOpenSettings: () => void;
   mongoConnected: boolean;
   engine: 'mongodb' | 'file_store';
@@ -13,8 +13,6 @@ export const Header: React.FC<HeaderProps> = ({
   activeTab,
   setActiveTab,
   onOpenSettings,
-  mongoConnected,
-  engine,
 }) => {
   return (
     <header className="sticky top-0 z-30 border-b border-[#202227] bg-[#0e0f11]/90 backdrop-blur-md">
@@ -66,19 +64,6 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             <span>Bottle</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('casaos')}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 transition-colors whitespace-nowrap shrink-0 ${
-              activeTab === 'casaos'
-                ? 'text-[#f4f5f7] border-b-2 border-[#f4f5f7]'
-                : 'text-[#8d939e] hover:text-[#d1d5db]'
-            }`}
-          >
-            <HardDrive className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">CasaOS & Docker</span>
-            <span className="sm:hidden">Server</span>
           </button>
         </nav>
 
