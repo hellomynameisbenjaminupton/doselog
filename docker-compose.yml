@@ -1,0 +1,65 @@
+name: doselog-casaos
+
+services:
+  # DoseLog Web App
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: doselog:latest
+    container_name: doselog-app
+    restart: unless-stopped
+    ports:
+      - "3080:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/doselog
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - mongo
+    networks:
+      - doselog-net
+
+  # MongoDB for ZimaBoard 1st Gen (Intel Celeron N3350/N3450 without AVX)
+  # MongoDB 5.0+ requires AVX instructions, so mongo:4.4 is the official compatible version for Celeron
+  mongo:
+    image: mongo:4.4
+    container_name: doselog-mongo
+    restart: unless-stopped
+    volumes:
+      - ./mongo-data:/data/db
+    networks:
+      - doselog-net
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+networks:
+  doselog-net:
+    driver: bridge
+
+# CasaOS App Store Metadata specification
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  main: app
+  description:
+    en_us: "Minimalist monotone medical marijuana balanced oil dose tracker with local timezone resets."
+  tagline:
+    en_us: "Medical Oil Dose Tracker"
+  developer: "DoseLog"
+  author: "Self-Hosted"
+  icon: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/cannabis.svg"
+  thumbnail: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/cannabis.svg"
+  title:
+    en_us: "DoseLog"
+  category: "Health"
+  port_map: "3080"
+  scheme: "http"
+  index: "/"

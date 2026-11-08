@@ -1,0 +1,7 @@
+node_modules
+dist
+.git
+.env
+data/doselog.json
+mongo-data
+*.log

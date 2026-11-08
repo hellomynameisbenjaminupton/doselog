@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="128" fill="#141517"/>
+  <rect x="16" y="16" width="480" height="480" rx="112" stroke="#25272b" stroke-width="6"/>
+  <!-- Minimalist oil dropper / calibrated vial symbol -->
+  <path d="M256 120 C236 170 196 235 196 288 C196 322 223 350 256 350 C289 350 316 322 316 288 C316 235 276 170 256 120 Z" fill="#F4F5F7"/>
+  <!-- Calibrated dose notch indicators inside -->
+  <line x1="240" y1="260" x2="272" y2="260" stroke="#141517" stroke-width="4" stroke-linecap="round"/>
+  <line x1="244" y1="285" x2="268" y2="285" stroke="#141517" stroke-width="4" stroke-linecap="round"/>
+  <line x1="248" y1="310" x2="264" y2="310" stroke="#141517" stroke-width="4" stroke-linecap="round"/>
+  <!-- Secondary ring mark -->
+  <circle cx="256" cy="392" r="12" fill="#5A5E67"/>
+</svg>
