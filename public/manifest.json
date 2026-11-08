@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "DoseLog Medical Oil Tracker",
-  "short_name": "DoseLog",
+  "name": "Dosed Medical Oil Tracker",
+  "short_name": "Dosed",
   "description": "Minimalist monotone daily tracker for medical marijuana balanced oil doses with local timezone midnight resets.",
   "start_url": "/",
   "scope": "/",

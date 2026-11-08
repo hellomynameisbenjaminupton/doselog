@@ -7,7 +7,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   oilName: 'BALANCED 25:25 (THC:CBD)',
   thcMgPerMl: 25,
   cbdMgPerMl: 25,
-  defaultVolumeMl: 0.5,
+  defaultVolumeMl: 0.4,
   bottleCapacityMl: 30,
   dailyTargetDoses: 3,
   customTimezone: '',

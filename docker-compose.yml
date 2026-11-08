@@ -53,12 +53,12 @@ x-casaos:
     en_us: "Minimalist monotone medical marijuana balanced oil dose tracker with local timezone resets."
   tagline:
     en_us: "Medical Oil Dose Tracker"
-  developer: "DoseLog"
+  developer: "Dosed"
   author: "Self-Hosted"
   icon: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/cannabis.svg"
   thumbnail: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/cannabis.svg"
   title:
-    en_us: "DoseLog"
+    en_us: "Dosed"
   category: "Health"
   port_map: "3080"
   scheme: "http"

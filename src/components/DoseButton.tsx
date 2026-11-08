@@ -15,15 +15,17 @@ export const DoseButton: React.FC<DoseButtonProps> = ({
   isLogging,
   dosesCountToday,
 }) => {
-  const [selectedVolume, setSelectedVolume] = useState<number>(settings.defaultVolumeMl || 0.5);
+  // Quick preset volumes in mL
+  const presets = [0.4, 0.3, 0.2];
+
+  const [selectedVolume, setSelectedVolume] = useState<number>(
+    presets.includes(settings.defaultVolumeMl) ? settings.defaultVolumeMl : 0.4
+  );
   const [customVolumeInput, setCustomVolumeInput] = useState<string>('');
   const [showCustomInput, setShowCustomInput] = useState<boolean>(false);
   const [showNoteField, setShowNoteField] = useState<boolean>(false);
   const [noteText, setNoteText] = useState<string>('');
   const [justLogged, setJustLogged] = useState<boolean>(false);
-
-  // Quick preset volumes in mL
-  const presets = [0.25, 0.5, 0.75, 1.0];
 
   // Soft subtle click sound via Web Audio API
   const playClickSound = () => {

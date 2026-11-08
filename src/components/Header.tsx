@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({
             <Droplets className="h-4 w-4 text-[#f4f5f7]" />
           </div>
           <div className="flex flex-col">
-            <span className="text-base font-bold tracking-tight text-[#f4f5f7]">DoseLog</span>
+            <span className="text-base font-bold tracking-tight text-[#f4f5f7]">Dosed</span>
           </div>
         </div>
 

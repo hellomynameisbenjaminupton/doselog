@@ -92,7 +92,7 @@ export const PWAInstallButton: React.FC = () => {
               </div>
               <div className="flex items-start gap-2.5">
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#202228] font-mono text-[10px] text-white">3</span>
-                <span>Open DoseLog from your home screen for instantaneous, 1-tap tracking!</span>
+                <span>Open Dosed from your home screen for instantaneous, 1-tap tracking!</span>
               </div>
             </div>
             <button

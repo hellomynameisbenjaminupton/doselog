@@ -1,5 +1,5 @@
 {
-  "name": "DoseLog - Medical Oil Tracker",
+  "name": "Dosed - Medical Oil Tracker",
   "description": "Minimalist monotone daily tracker for medical marijuana balanced oil doses with local timezone midnight resets and CasaOS/Docker self-hosting support.",
   "requestFramePermissions": [],
   "majorCapabilities": [
