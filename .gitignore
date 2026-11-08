@@ -2,6 +2,8 @@ node_modules/
 build/
 dist/
 coverage/
+data/
+mongo-data/
 .DS_Store
 *.log
 .env*

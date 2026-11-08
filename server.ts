@@ -40,8 +40,8 @@ interface LocalStorageData {
 
 const defaultSettings: LocalStorageData['settings'] = {
   oilName: 'BALANCED 25:25 (THC:CBD)',
-  thcMgPerMl: 10,
-  cbdMgPerMl: 10,
+  thcMgPerMl: 25,
+  cbdMgPerMl: 25,
   defaultVolumeMl: 0.5,
   bottleCapacityMl: 30,
   dailyTargetDoses: 3,
