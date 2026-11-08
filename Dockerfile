@@ -1,32 +1,19 @@
-# Production Multi-Stage Dockerfile for DoseLog (ZimaBoard / CasaOS / Debian)
-FROM node:22-bookworm-slim AS builder
+# Lean Single-Stage Production Dockerfile for DoseLog (ZimaBoard / CasaOS / Debian)
+# Avoids duplicating node_modules across multiple stages to save ZimaBoard eMMC disk space
+FROM node:22-bookworm-slim
 
 WORKDIR /app
 
-# Install dependencies
+# Install dependencies (cached unless package.json changes)
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install --legacy-peer-deps --no-audit --no-fund && npm cache clean --force
 
-# Copy application code and build client
+# Copy application code and build frontend
 COPY . .
 RUN npm run build
 
-# Stage 2: Runtime
-FROM node:22-bookworm-slim AS runner
-
-WORKDIR /app
-
 ENV NODE_ENV=production
 ENV PORT=3000
-
-# Install production dependencies only
-COPY package*.json ./
-RUN npm install --omit=dev --legacy-peer-deps
-
-# Copy built frontend assets and server files
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/server.ts ./server.ts
-COPY --from=builder /app/tsconfig.json ./tsconfig.json
 
 # Expose app port
 EXPOSE 3000
